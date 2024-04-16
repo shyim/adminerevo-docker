@@ -19,4 +19,4 @@ jobs:
         with:
           username: shyim
           password: ${{ secrets.DOCKER_HUB_PAT }}
-          repository: shopware/docker-base
+          repository: shyim/adminerevo
