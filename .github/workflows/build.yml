@@ -20,6 +20,9 @@ jobs:
       - name: Clone
         uses: actions/checkout@v4
 
+      - name: Install Regctl
+        uses: iarekylew00t/regctl-installer@v1
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
