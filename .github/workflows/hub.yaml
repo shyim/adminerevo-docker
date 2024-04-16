@@ -1,0 +1,22 @@
+name: Sync Dockerhub Readme
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: shyim
+          password: ${{ secrets.DOCKER_HUB_PAT }}
+          repository: shopware/docker-base
