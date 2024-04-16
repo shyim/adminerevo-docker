@@ -1,0 +1,44 @@
+name: Build Docker Image
+
+on:
+  push:
+    paths:
+      - build.sh
+      - .github/workflows/build.yml
+  schedule:
+    - cron: '5 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login into Github Docker Registery
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Get latest PHPStan version
+        id: ADMINEREVO_VERSION
+        run: |
+          VERSION=$(curl https://api.github.com/repos/adminerevo/adminerevo/releases/latest | jq '.tag_name | ltrimstr("v")' -r)
+          echo "VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ghcr.io/shyim/adminerevo:latest
+          build-args: |
+            ADMINEREVO_VERSION=${{ steps.ADMINEREVO_VERSION.outputs.VERSION }}
