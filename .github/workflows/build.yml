@@ -32,7 +32,7 @@ jobs:
       - name: Login into Docker Hub
         run: echo "${{ secrets.DOCKER_HUB_PAT }}" | docker login -u shyim --password-stdin
 
-      - name: Get latest PHPStan version
+      - name: Get latest Adminerevo version
         id: ADMINEREVO_VERSION
         run: |
           VERSION=$(curl https://api.github.com/repos/adminerevo/adminerevo/releases/latest | jq '.tag_name | ltrimstr("v")' -r)
