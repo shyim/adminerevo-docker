@@ -9,9 +9,11 @@ if [ -n "$ADMINER_DESIGN" ]; then
 	fi
 fi
 
+mkdir -p /var/www/html/plugins-enabled || true
+
 number=1
 for PLUGIN in $ADMINER_PLUGINS; do
-	php plugin-loader.php "$PLUGIN" > plugins-enabled/$(printf "%03d" $number)-$PLUGIN.php
+	php plugin-loader.php "$PLUGIN" > /var/www/html/plugins-enabled/$(printf "%03d" $number)-$PLUGIN.php
 	number=$(($number+1))
 done
 
