@@ -8,14 +8,14 @@ if (basename($name) !== $name) {
 	fwrite(STDERR, 'Refusing to load plugin file "'.$name.'" for security reasons.'."\n");
 	exit(1);
 }
-if (!is_readable('plugins/'.$name.'.php')) {
+if (!is_readable('/var/www/html/plugins/'.$name.'.php')) {
 	fwrite(STDERR, 'Unable to find plugin file "'.$name.'".'."\n");
 	exit(1);
 }
 
 // Try to find class.
-$file = 'plugins/'.$name.'.php';
-$code = file_get_contents('plugins/'.$name.'.php');
+$file = '/var/www/html/plugins/'.$name.'.php';
+$code = file_get_contents('/var/www/html/plugins/'.$name.'.php');
 $tokens = token_get_all($code);
 
 $classFound = false;
@@ -51,7 +51,7 @@ if ($constructor && $constructor->getNumberOfRequiredParameters() > 0) {
 	fwrite(STDERR, 'Unable to load plugin file "'.$name.'", because it has required parameters: '.implode(', ', array_map(function ($item) {
 		return $item->getName();
 	}, $requiredParameters))."\n".
-'Create a file "'.getcwd().'/plugins-enabled/'.$name.'.php" with the following contents to load the plugin:'."\n\n".
+'Create a file /var/www/html/plugins-enabled/'.$name.'.php" with the following contents to load the plugin:'."\n\n".
 '<?php
 require_once('.var_export($file, true).');
 
