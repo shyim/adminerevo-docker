@@ -51,7 +51,7 @@ if ($constructor && $constructor->getNumberOfRequiredParameters() > 0) {
 	fwrite(STDERR, 'Unable to load plugin file "'.$name.'", because it has required parameters: '.implode(', ', array_map(function ($item) {
 		return $item->getName();
 	}, $requiredParameters))."\n".
-'Create a file /var/www/html/plugins-enabled/'.$name.'.php" with the following contents to load the plugin:'."\n\n".
+'Create a file /var/www/html/plugins-custom/'.$name.'.php" with the following contents to load the plugin:'."\n\n".
 '<?php
 require_once('.var_export($file, true).');
 

@@ -52,7 +52,7 @@ If a plugin *requires* parameters to work correctly instead of adding the plugin
 ```console
 $ docker run --link some_database:db -p 8080:8080 -e ADMINER_PLUGINS='login-servers' ghcr.io/shyim/adminerevo:latest
 Unable to load plugin file "login-servers", because it has required parameters: servers
-Create a file "/var/www/html/plugins-enabled/login-servers.php" with the following contents to load the plugin:
+Create a file "/var/www/html/plugins-custom/login-servers.php" with the following contents to load the plugin:
 
 <?php
 require_once('plugins/login-servers.php');
@@ -67,7 +67,7 @@ return new AdminerLoginServers(
 );
 ```
 
-To load a custom plugin you can add PHP scripts that return the instance of the plugin object to `/var/www/html/plugins-enabled/`.
+To load a custom plugin you can add PHP scripts that return the instance of the plugin object to `/var/www/html/plugins-custom/`.
 
 ### Choosing a design
 

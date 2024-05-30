@@ -25,6 +25,12 @@ namespace docker {
 			$plugins[] = require($plugin);
 		}
 
+		if (is_dir('plugins-custom')) {
+			foreach (glob('plugins-custom/*.php') as $plugin) {
+				$plugins[] = require($plugin);
+			}
+		}
+
 		return new Adminer($plugins);
 	}
 }
