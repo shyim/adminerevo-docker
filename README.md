@@ -23,7 +23,6 @@ Example `docker-compose.yml` for `adminerevo`:
 ```yaml
 # Use root/example as user/password credentials
 
-version: '3.1'
 services:
   adminer:
     image: ghcr.io/shyim/adminerevo:latest
