@@ -88,6 +88,15 @@ You can specify the default host with the `ADMINER_DEFAULT_SERVER` environment v
 docker run -p 8080:8080 -e ADMINER_DEFAULT_SERVER=mysql ghcr.io/shyim/adminerevo:latest
 ```
 
+### Setting default login credentials
+
+You can set following environment variable sto configure the login screen:
+
+- `ADMINER_DEFAULT_SERVER` - default connection host
+- `ADMINER_DEFAULT_USER` - default connection user
+- `ADMINER_DEFAULT_PASSWORD` - default connection password
+- `ADMINER_DEFAULT_DB` - default connection database
+
 ## Supported Drivers
 
 While Adminer supports a wide range of database drivers this image only supports the following out of the box:
