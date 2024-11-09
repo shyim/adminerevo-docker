@@ -92,10 +92,26 @@ docker run -p 8080:8080 -e ADMINER_DEFAULT_SERVER=mysql ghcr.io/shyim/adminerevo
 
 You can set following environment variable sto configure the login screen:
 
-- `ADMINER_DEFAULT_SERVER` - default connection host
-- `ADMINER_DEFAULT_USER` - default connection user
-- `ADMINER_DEFAULT_PASSWORD` - default connection password
-- `ADMINER_DEFAULT_DB` - default connection database
+| Environment Variable | Description |
+| -------------------- | ----------- |
+| `ADMINER_DEFAULT_DRIVER` | default connection driver | 
+| `ADMINER_DEFAULT_SERVER` | default connection host |
+| `ADMINER_DEFAULT_USER` | default connection user |
+| `ADMINER_DEFAULT_PASSWORD` | default connection password |
+| `ADMINER_DEFAULT_DB` | default connection database |
+
+The supported driver values are:
+
+| Value | Driver |
+| ----- | ------ |
+| `server` | MySQL |
+| `sqlite` | SQLite 3 |
+| `sqlite2` | SQLite 2 |
+| `pgsql` | PostgreSQL |
+| `oracle` | Oracle (beta) |
+| `mssql` | MS SQL (beta) |
+| `mongo` | MongoDB (beta) |
+| `elastic` | Elasticsearch (beta) |
 
 ## Supported Drivers
 
