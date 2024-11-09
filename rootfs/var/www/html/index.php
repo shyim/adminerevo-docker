@@ -11,6 +11,20 @@ namespace docker {
                     $return = \Adminer::loginForm();
                     $form = ob_get_clean();
 
+                    if (getenv('ADMINER_DEFAULT_DRIVER') != 'server') {
+                        $form = str_replace(
+                            'option value="server" selected',
+                            'option value="server"',
+                            $form
+                        );
+    
+                        $form = str_replace(
+                            'option value="'.(getenv('ADMINER_DEFAULT_DRIVER')).'"',
+                            'option value="'.(getenv('ADMINER_DEFAULT_DRIVER')).'" selected',
+                            $form
+                        );
+                    }
+
                     $form = str_replace(
                         'name="auth[server]" value="" title="hostname[:port]"',
                         'name="auth[server]" value="'.(getenv('ADMINER_DEFAULT_SERVER') ?: 'db').'" title="hostname[:port]"',
