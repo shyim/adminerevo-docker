@@ -9,7 +9,9 @@ RUN apk add --no-cache \
     php-8.3-pdo_mysql \
     php-8.3-pdo_sqlite \
     php-8.3-pdo_pgsql \
-    php-8.3-mysqlnd
+    php-8.3-mysqlnd \
+    php-8.3-pdo_dblib \
+    php-8.3-opcache
 
 COPY rootfs /
 
