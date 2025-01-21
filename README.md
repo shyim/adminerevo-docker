@@ -2,7 +2,7 @@
 
 ## What is Adminerevo?
 
-Adminerevo is a fork of Adminer, but it's better maintained and has more features. It's a full-featured database management tool written in PHP. Conversely to phpMyAdmin, it consist of a single file ready to deploy to the target server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch and MongoDB.
+Adminerevo is a fork of Adminer, but it's better maintained and has more features. It's a full-featured database management tool written in PHP. Conversely, to phpMyAdmin, it consists of a single file ready to deploy to the target server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch and MongoDB.
 
 > [adminerevo.org](https://docs.adminerevo.org/)
 
@@ -70,7 +70,7 @@ To load a custom plugin you can add PHP scripts that return the instance of the 
 
 ### Choosing a design
 
-The image bundles all the designs that are available in the source package of adminer. You can find the list of designs on GitHub: https://github.com/adminerevo/adminerevo/tree/main/designs.
+The image bundles all the designs that are available in the Adminer source package. You can find the list of designs on GitHub: https://github.com/adminerevo/adminerevo/tree/main/designs.
 
 To use a bundled design you can pass its name in `ADMINER_DESIGN`:
 
@@ -90,7 +90,7 @@ docker run -p 8080:8080 -e ADMINER_DEFAULT_SERVER=mysql ghcr.io/shyim/adminerevo
 
 ### Setting default login credentials
 
-You can set following environment variable sto configure the login screen:
+You can set the following environment variables to configure the login screen:
 
 | Environment Variable | Description |
 | -------------------- | ----------- |
