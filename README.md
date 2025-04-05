@@ -1,5 +1,8 @@
 # Adminerevo
 
+> [!NOTE]  
+> The official project of adminer is revived, use https://hub.docker.com/_/adminer instead
+
 ## What is Adminerevo?
 
 Adminerevo is a fork of Adminer, but it's better maintained and has more features. It's a full-featured database management tool written in PHP. Conversely, to phpMyAdmin, it consists of a single file ready to deploy to the target server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch and MongoDB.
